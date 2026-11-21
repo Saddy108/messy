@@ -1,0 +1,26 @@
+// Friendly messages for every illegal move. Each: what happened + the rule + a tiny tip.
+// Placeholders: {piece} {color} {target} {attacker}
+export const MOVE_TEXT: Record<string, string> = {
+  NOT_YOUR_TURN: "It is not your turn yet. Players take turns, one move each. Wait for the other side to move.",
+  NOT_YOUR_PIECE: "That is a {color} piece, and it is not its turn. You can only move your own pieces. Tap one of yours.",
+  NO_PIECE: "There is no piece on that square. Tap one of your pieces first.",
+  CANNOT_MOVE_LIKE_THAT: "A {piece} cannot move like that. Each piece has its own pattern. Tap the piece to see where it can go.",
+  PATH_BLOCKED: "Something is in the way. Only the knight can jump over pieces. Pick a square before the blocker, or capture an enemy blocker.",
+  OWN_PIECE_ON_TARGET: "Your own {target} is standing there. You can never capture your own pieces. Choose another square.",
+  KING_INTO_CHECK: "Your king would walk into the {attacker}'s line. A king can never move into check. Try a square the {attacker} does not reach.",
+  KINGS_CANNOT_TOUCH: "The two kings can never stand next to each other. Keep at least one square between them.",
+  PIECE_IS_PINNED: "Your {piece} is pinned. If it leaves this line, your king would be in check. A pinned piece may only slide along the pin line.",
+  MUST_ESCAPE_CHECK: "Your king is in check! You must get out of check right now. Move the king, capture the attacker, or block the line.",
+  DOUBLE_CHECK_KING_MUST_MOVE: "Two pieces are checking your king at once. You cannot block or capture both. Only a king move can help.",
+  PAWN_NO_BACKWARD: "Pawns only move forward. They never go backward or sideways. Look one square ahead.",
+  PAWN_CAPTURES_DIAGONALLY: "A pawn captures one square diagonally forward, and only when an enemy piece is there. Otherwise it walks straight.",
+  PAWN_BLOCKED: "The pawn is blocked. A pawn cannot capture straight ahead, and it cannot jump. Try a different piece.",
+  PAWN_DOUBLE_STEP_ONLY_FROM_START: "A pawn may move two squares only on its very first move. After that, it goes one square at a time.",
+  EN_PASSANT_EXPIRED: "En passant is only allowed on the very next move. That chance is gone now. It is now or never!",
+  CASTLE_KING_MOVED: "You cannot castle: your king has already moved. The king must never have moved to castle.",
+  CASTLE_ROOK_MOVED: "You cannot castle on this side: that rook has already moved (or is gone). The rook must never have moved.",
+  CASTLE_PATH_BLOCKED: "You cannot castle: there are pieces between the king and the rook. All squares between them must be empty.",
+  CASTLE_IN_CHECK: "You cannot castle out of check. First deal with the check. Castling is never an escape from check.",
+  CASTLE_THROUGH_CHECK: "You cannot castle: your king would pass over a square the enemy attacks. The square it crosses must be safe too.",
+  CASTLE_INTO_CHECK: "You cannot castle: your king would land on an attacked square. The king can never end a move in check.",
+};

@@ -1,0 +1,14 @@
+node_modules
+dist
+test-results
+playwright-report
+
+.sf/
+test-results/
+playwright-report/
+
+.env
+.env.*
+*.log
+.sf/
+.sfdx/

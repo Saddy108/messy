@@ -1,0 +1,107 @@
+/* Board themes are set with data-board="wood|green|contrast" on <html>. */
+:root {
+  --sq-light: #f0d9b5;
+  --sq-dark: #b58863;
+  --coord-on-light: #8a5f3d;
+  --coord-on-dark: #f6e8d2;
+}
+:root[data-board='green'] {
+  --sq-light: #eeeed2;
+  --sq-dark: #6e9a5a;
+  --coord-on-light: #4d7240;
+  --coord-on-dark: #f4f7e6;
+}
+:root[data-board='contrast'] {
+  --sq-light: #ffffff;
+  --sq-dark: #5b6b8c;
+  --coord-on-light: #1b2438;
+  --coord-on-dark: #ffffff;
+}
+
+.board-wrap {
+  width: 100%;
+  max-width: min(100%, 560px);
+  margin: 0 auto;
+  touch-action: none;
+  border-radius: 10px;
+  outline: none;
+}
+.board-wrap:focus-visible {
+  outline: 3px solid var(--focus, #2b6cff);
+  outline-offset: 3px;
+}
+.board {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22), 0 0 0 4px var(--board-frame, #6b4a2b);
+  user-select: none;
+  -webkit-user-select: none;
+}
+.sq-light { fill: var(--sq-light); }
+.sq-dark { fill: var(--sq-dark); }
+.coord { font-size: 2.1px; font-weight: 700; font-family: system-ui, sans-serif; pointer-events: none; }
+.coord.on-light { fill: var(--coord-on-light); }
+.coord.on-dark { fill: var(--coord-on-dark); }
+
+.mark { pointer-events: none; }
+.mark-last { fill: rgba(255, 221, 51, 0.45); }
+.mark-check { fill: rgba(235, 50, 50, 0.55); }
+.mark-good, .mark-found { fill: rgba(60, 190, 90, 0.5); }
+.mark-bad { fill: rgba(235, 70, 70, 0.5); }
+.mark-hint { fill: rgba(60, 140, 255, 0.4); stroke: #2b6cff; stroke-width: 0.5; stroke-dasharray: 1.6 1; }
+.mark-line { fill: rgba(235, 120, 40, 0.5); }
+.mark-pin { fill: rgba(150, 80, 220, 0.45); }
+.mark-attacked { fill: rgba(220, 60, 60, 0.32); }
+.mark-attacked + * { }
+.mark-x { stroke: #9b1c1c; stroke-width: 1; fill: none; stroke-linecap: round; pointer-events: none; }
+.mark-tick { stroke: #176b35; stroke-width: 1; fill: none; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.mark-lock { stroke: #4a1f87; stroke-width: 0.7; fill: rgba(255, 255, 255, 0.7); pointer-events: none; }
+.found-dot { fill: #1d8a46; stroke: #fff; stroke-width: 0.5; pointer-events: none; }
+.check-ring {
+  fill: none;
+  stroke: #d71f1f;
+  stroke-width: 0.8;
+  pointer-events: none;
+  animation: pulse 1.1s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.selected { fill: rgba(80, 160, 255, 0.45); stroke: #2b6cff; stroke-width: 0.6; pointer-events: none; }
+.cursor { fill: none; stroke: #2b6cff; stroke-width: 0.8; stroke-dasharray: 2 1; pointer-events: none; }
+
+.dot { fill: rgba(20, 40, 20, 0.42); pointer-events: none; }
+.ring { fill: none; stroke: rgba(20, 40, 20, 0.5); stroke-width: 1; pointer-events: none; }
+.star path { fill: #ffc400; stroke: #b27a00; stroke-width: 0.4; stroke-linejoin: round; }
+.star { pointer-events: none; animation: twinkle 1.6s ease-in-out infinite; transform-box: fill-box; }
+
+.piece { transition: transform 220ms ease; pointer-events: none; }
+.piece.no-anim, .piece.dragging { transition: none; }
+.piece.dragging { filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.45)); }
+
+.arrow line { stroke-width: 1.5; stroke-linecap: round; }
+.arrow polygon { stroke: none; }
+.arrow-hint line { stroke: rgba(43, 108, 255, 0.85); }
+.arrow-hint polygon { fill: rgba(43, 108, 255, 0.85); }
+.arrow-threat line { stroke: rgba(215, 31, 31, 0.8); }
+.arrow-threat polygon { fill: rgba(215, 31, 31, 0.8); }
+.arrow-demo line { stroke: rgba(40, 160, 90, 0.85); }
+.arrow-demo polygon { fill: rgba(40, 160, 90, 0.85); }
+.arrow { pointer-events: none; }
+
+.ghost { transition: transform 600ms ease-in-out; pointer-events: none; }
+.ghost-ring { fill: rgba(255, 255, 255, 0.35); stroke: #fff; stroke-width: 0.5; }
+.ghost-hand { fill: #fff; stroke: #333; stroke-width: 0.45; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@keyframes pulse { 0%, 100% { opacity: 0.45; transform: scale(0.92); } 50% { opacity: 1; transform: scale(1.04); } }
+@keyframes twinkle { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .piece, .ghost { transition: none; }
+  .check-ring, .star { animation: none; }
+}

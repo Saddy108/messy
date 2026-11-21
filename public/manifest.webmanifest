@@ -1,0 +1,11 @@
+{
+  "name": "Pip's Chess Quest",
+  "short_name": "Chess Quest",
+  "description": "Learn every rule of chess, step by step.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffaf0",
+  "theme_color": "#2f7d4f",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
